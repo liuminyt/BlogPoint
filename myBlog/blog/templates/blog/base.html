@@ -1,0 +1,37 @@
+{% load static from staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="shortcut icon" href="{% static "img/fav.ico" %}"type="image/x-icon">
+<link rel="icon" href="{% static "img/fav.ico" %}" type="image/x-icon">
+<link type="text/css" href="{% static "css/style.css" %}" rel="stylesheet"/>
+<link rel="stylesheet" href="{% static "css/prettify.css" %}" type="text/css" />
+<script src="{% static "js/jquery.js" %}"></script>
+<script src="{% static "js/my.js" %}"></script>
+<script src="{% static "js/myajax.js" %}"></script>
+<script type="text/javascript" language="javascript" src="{% static "google-code-prettify/prettify.js" %}"></script>
+<title>{{ siteinfo.username }}</title>
+</head>
+
+<body>
+    <div id="menu">
+        <ul>
+            <a href="{% url 'blog:index' %}"><li id="selected1"> <img src="{% static "img/indexico.png" %}" /></li></a>
+            <a href="{% url 'blog:topics' %}"> <li><img src="{% static "img/topicsico.png" %}" /></li></a>
+            <a href="{% url 'blog:likest' %}"> <li> <img src="{% static "img/toplistico.png" %}" /></li></a>
+        </ul>
+    </div>
+    {% block main %} 
+
+    {% endblock %}
+    <div id="rightInfo">
+        <a href="#"> <img src="{{ siteinfo.user_image.url }}" ></a>
+    </div>
+
+<script type="text/javascript" language="javascript">
+	prettyPrint();
+</script>
+
+</body>
+</html>

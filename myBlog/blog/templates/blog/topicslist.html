@@ -1,0 +1,28 @@
+{% extends "blog/base.html" %}
+{% load static from staticfiles %}
+{% block main %} 
+    <div id="main">
+        <div id="showPic" >
+            <img src="{{ siteinfo.index_image.url }}"></img>
+        </div>  
+        <div id="content">
+            <div id="contentTop">
+                <ul>
+                    <li>所有专题<li>
+                </ul>
+            </div>
+            <ul id="topics">
+                {% for topic in topics %}
+                    <a href="{% url 'blog:topicsArticles' topic.id %} ">
+                    <li>
+                        <img src="{{ topic.discreption_image.url }}">
+                        <h2>{{ topic.name }}</h2>
+                        <p>{{ topic.discreption|truncatechars:45}}</p>
+                    </li>
+                    </a>
+                {% endfor %}
+            </ul>
+    
+        </div>
+    </div>
+{% endblock %}

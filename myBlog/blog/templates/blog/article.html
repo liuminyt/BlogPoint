@@ -1,0 +1,63 @@
+{% extends "blog/base.html" %}
+{% load static from staticfiles %}
+{% block main %} 
+    <div id="main">
+        <div id="showPic" >
+            <img src="{{ article.image.url }}" ></img>
+        </div>  
+        <div id="content">
+            <div id="contentTop">
+                <ul>
+                    <li>文章内容<li>
+                </ul>
+            </div>
+            <ul id="articlesList">
+                <li>
+                    <h2>{{ article.headline }}</h2>
+					<p id="infomation">
+						<span>发布于：<a href="{% url 'blog:topicsArticles' article.topics.id%}">{{ article.topics }}</a></span>
+						<span>发布时间：{{ article.pub_date }}</span>
+						<span>标签： <a href="{% url 'blog:labelArticles' article.label %}">{{ article.label}}</a></span>
+					</p>
+                    {% autoescape off %} {{ article.content }} {% endautoescape %}
+                </li>
+            </ul>
+    
+        </div>
+    </div>
+{% endblock %}
+
+
+
+{% block mobile %}
+<div data-role="page">
+  <div data-role="header">
+    <h1>{{ siteinfo.name }}</h1>
+  </div>
+	
+	<div data-role="navbar">
+      <ul>
+        <li><a href="{% url 'blog:index'%}" data-icon="home">首页</a></li>
+        <li><a href="{% url 'blog:topics'%}" data-icon="arrow-r">专题页</a></li>
+        <li><a href="{% url 'blog:likest'%}" data-icon="arrow-r">最受欢迎</a></li>
+      </ul>
+    </div>
+
+  <div data-role="content">
+            <ul id="articlesList">
+                <li>
+                    <h2>{{ article.headline }}</h2>
+					<p>
+						<span>发布于：<a href="{% url 'blog:topicsArticles' article.topics.id%}">{{ article.topics }}</a></span>
+						<span>发布时间：{{ article.pub_date }}</span>
+						<span>标签： <a href="{% url 'blog:labelArticles' article.label %}">{{ article.label}}</a></span>
+					</p>
+                    <p>{% autoescape off %} {{ article.content }} {% endautoescape %}</p>
+                </li>
+  </div>
+
+  <div data-role="footer">
+    <h1> andy's simple blog.</h1>
+  </div>
+</div>	
+{% endblock %}

@@ -1,0 +1,138 @@
+body, a, img {border: 0; margin: 0;}
+a {color: #333; text-decoration: none;}
+ol, ul, li {list-style: none;}
+p{font-size: 14px; color: #999; line-height: 26px;}
+span{ margin-right: 20px;}
+#menu
+{
+	width: 48px;
+	height: 1400px;
+	position: fixed;
+	overflow: hidden;
+	background: #333;
+	float: left;
+	z-index: 3;
+}
+#menu ul
+{
+	padding: 0;
+	margin: 0;
+}
+
+#menu li
+{
+	width: 48px;
+	height: 48px;
+	margin: 0px;
+}
+
+#menu img
+{
+	width: 48px;
+	height: 48px;
+	margin: 0px;
+}
+
+#rightInfo
+{
+	float: right;
+}
+
+#rightInfo img
+{
+	width: 64px;
+	height: 64px;
+	margin: 10px;
+	position: relative;
+	top: 0px;
+	right: 0px;
+}
+
+#main
+{
+	float: left;
+	width: 90%;
+}
+
+#showPic
+{
+	margin:0;
+	width: 25%;
+	height: 1000px;
+	position: fixed;
+}
+
+#showPic img
+{
+	width: 100%;
+	height: 100%;
+}
+
+#content
+{
+	margin: 0;
+	margin-left: 28%;
+	float: left;
+	text-align: center;
+}
+
+#articlesList
+{
+	float: left;
+}
+
+#articlesList li
+{
+	text-align: left;
+	border-bottom: dashed 1px #eee;
+	line-height: 24px;
+}
+
+#contentTop
+{
+	width: 100%;
+	height: 40px;
+	border-bottom: solid 1px #ccc;
+	margin: 0px;
+}
+
+#contentTop ul
+{
+	margin: 0;
+}
+
+#contentTop ul li
+{
+	border-bottom: solid 1px;
+	height: 40px;
+	line-height: 40px;
+	float: left;
+}
+
+#topics
+{
+	width: 100%;
+}
+
+#topics li
+{
+	float: left;
+	border: solid 1px #ccc;
+	width: 230px;
+	height: 300px;
+	margin: 10px 20px;
+}
+
+#topics li img
+{
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+}
+
+#topics p
+{
+	display: block;
+	margin:5px 30px;
+	line-height: 20px;
+}

@@ -1,0 +1,35 @@
+{% extends "blog/base.html" %}
+{% load static from staticfiles %}
+{% block main %} 
+    <div id="main">
+				<div id="showPic" >
+            <img src="{{ topic.image.url }}"></img>
+        </div>  
+        <div id="content">
+            <div id="contentTop">
+                <ul>
+                    <li>{{ topic.name }}<li>
+                </ul>
+            </div>
+            <ul id="articlesList">
+                {% for article in articles %}
+                <li>
+                    <a href="{% url 'blog:article' article.id %}">
+                        <h2>{{ article.headline }}</h2>
+					</a>
+            		<p>{% autoescape off %} {{ article.content|removetags:"a div p span br pre img h1 h2 h3 "|truncatechars_html:150 }} {% endautoescape %}</p>
+					<p>
+            			<span>发布时间:{{ article.pub_date }}</span>
+						<span>所属专题:<a href="{% url 'blog:topicsArticles' article.topics.id%}">{{ article.topics }}</a></span>
+                        <span>标签:<a href="{% url 'blog:labelArticles' article.label %}"> {{ article.label }} </a></span>
+                        <span><img src="{% static "img/comment.png" %}"/> &nbsp;{{ article.comments_set.all.count }}</span>
+                        <span><a class="likeit" style="cursor:pointer" data-article_id="{{ article.id}}"><img src="{% static "img/like.png" %}"/> &nbsp; {{ article.like }} </a> </span>
+                    </p>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+
