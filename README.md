@@ -1,0 +1,4 @@
+BlogPoint
+=========
+
+ a simple blog
